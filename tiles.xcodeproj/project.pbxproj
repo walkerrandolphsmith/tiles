@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF523F8B1C17921B000D33BE /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CF523F8A1C17921B000D33BE /* Sprites.atlas */; };
 		CF8E9E371C16709F0090CDC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9E361C16709F0090CDC2 /* AppDelegate.swift */; };
 		CF8E9E391C16709F0090CDC2 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = CF8E9E381C16709F0090CDC2 /* GameScene.sks */; };
 		CF8E9E3B1C16709F0090CDC2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9E3A1C16709F0090CDC2 /* GameScene.swift */; };
@@ -28,6 +29,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		CF523F8A1C17921B000D33BE /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
 		CF8E9E331C16709F0090CDC2 /* tiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8E9E361C16709F0090CDC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8E9E381C16709F0090CDC2 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -66,6 +68,7 @@
 				CF8E9E351C16709F0090CDC2 /* tiles */,
 				CF8E9E4E1C16709F0090CDC2 /* tilesTests */,
 				CF8E9E341C16709F0090CDC2 /* Products */,
+				CF523F8A1C17921B000D33BE /* Sprites.atlas */,
 			);
 			sourceTree = "<group>";
 		};
@@ -187,6 +190,7 @@
 				CF8E9E451C16709F0090CDC2 /* LaunchScreen.storyboard in Resources */,
 				CF8E9E421C16709F0090CDC2 /* Assets.xcassets in Resources */,
 				CF8E9E401C16709F0090CDC2 /* Main.storyboard in Resources */,
+				CF523F8B1C17921B000D33BE /* Sprites.atlas in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -395,6 +399,7 @@
 				CF8E9E561C16709F0090CDC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		CF8E9E571C16709F0090CDC2 /* Build configuration list for PBXNativeTarget "tilesTests" */ = {
 			isa = XCConfigurationList;
@@ -403,6 +408,7 @@
 				CF8E9E591C16709F0090CDC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
