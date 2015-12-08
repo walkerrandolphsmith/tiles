@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		CF523F8B1C17921B000D33BE /* Sprites.atlas in Resources */ = {isa = PBXBuildFile; fileRef = CF523F8A1C17921B000D33BE /* Sprites.atlas */; };
+		CF523F8F1C179602000D33BE /* Cookie.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF523F8E1C179602000D33BE /* Cookie.swift */; };
 		CF8E9E371C16709F0090CDC2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9E361C16709F0090CDC2 /* AppDelegate.swift */; };
 		CF8E9E3B1C16709F0090CDC2 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9E3A1C16709F0090CDC2 /* GameScene.swift */; };
 		CF8E9E3D1C16709F0090CDC2 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9E3C1C16709F0090CDC2 /* GameViewController.swift */; };
@@ -29,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		CF523F8A1C17921B000D33BE /* Sprites.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Sprites.atlas; sourceTree = "<group>"; };
+		CF523F8E1C179602000D33BE /* Cookie.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Cookie.swift; sourceTree = "<group>"; };
 		CF8E9E331C16709F0090CDC2 /* tiles.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tiles.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8E9E361C16709F0090CDC2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		CF8E9E3A1C16709F0090CDC2 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
@@ -84,6 +86,7 @@
 			children = (
 				CF8E9E361C16709F0090CDC2 /* AppDelegate.swift */,
 				CF8E9E3A1C16709F0090CDC2 /* GameScene.swift */,
+				CF523F8E1C179602000D33BE /* Cookie.swift */,
 				CF8E9E3C1C16709F0090CDC2 /* GameViewController.swift */,
 				CF8E9E3E1C16709F0090CDC2 /* Main.storyboard */,
 				CF8E9E411C16709F0090CDC2 /* Assets.xcassets */,
@@ -205,6 +208,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CF8E9E3B1C16709F0090CDC2 /* GameScene.swift in Sources */,
+				CF523F8F1C179602000D33BE /* Cookie.swift in Sources */,
 				CF8E9E3D1C16709F0090CDC2 /* GameViewController.swift in Sources */,
 				CF8E9E371C16709F0090CDC2 /* AppDelegate.swift in Sources */,
 			);
