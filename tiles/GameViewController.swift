@@ -11,6 +11,7 @@ import SpriteKit
 
 class GameViewController: UIViewController {
     var scene: GameScene!
+    var level: Level!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +20,11 @@ class GameViewController: UIViewController {
         scene = GameScene(size: skView.bounds.size)
         scene.scaleMode = .AspectFill
 
+        level = Level()
+        scene.level = level
+
         skView.presentScene(scene)
+        beginGame()
     }
 
     override func prefersStatusBarHidden() -> Bool {
@@ -32,5 +37,14 @@ class GameViewController: UIViewController {
 
     override func supportedInterfaceOrientations() -> UIInterfaceOrientationMask {
         return UIInterfaceOrientationMask.AllButUpsideDown
+    }
+
+    func beginGame(){
+        shuffle()
+    }
+
+    func shuffle(){
+        let newCookies = level.shuffle()
+        scene.addSpritesForCookies(newCookies)
     }
 }
