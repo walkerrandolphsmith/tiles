@@ -24,7 +24,7 @@ enum CookieType : Int{
     }
 }
 
-class Cookie {
+class Cookie: Hashable {
     var column: Int
     var row: Int
     let cookieType: CookieType
@@ -35,4 +35,12 @@ class Cookie {
         self.row = row
         self.cookieType = cookieType
     }
+
+    var hashValue: Int {
+        return row * 10 + column
+    }
+}
+
+func ==(lhs: Cookie, rhs: Cookie) -> Bool {
+    return lhs.column == rhs.column && lhs.row == rhs.row
 }
