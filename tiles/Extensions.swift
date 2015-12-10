@@ -1,31 +1,39 @@
 import Foundation
 
 extension Dictionary {
-    static func loadJSONFromBundle(filename: String) -> Dictionary<String, AnyObject>? {
-        if let path = NSBundle.mainBundle().pathForResource("Levels/" + filename, ofType: "json") {
-            do {
-                var data: NSData?
-                data = try NSData(contentsOfFile: path, options: NSDataReadingOptions())
+    static func loadJSONFromBundle(filename: String) -> Dictionary? {
 
-                if let data = data {
-                    let dictionary: AnyObject? = try NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions())
-                    if let dictionary = dictionary as? Dictionary<String, AnyObject> {
-                        return dictionary
+        let bundle = NSBundle.mainBundle()
+
+        if let path = bundle.pathForResource("Levels/" + filename, ofType: "json")
+        {
+            do{
+                if let jsonData = try NSData(contentsOfFile: path, options: NSDataReadingOptions()) as NSData!
+                {
+                    do{
+                        if let jsonResult: NSDictionary = try NSJSONSerialization.JSONObjectWithData(jsonData, options: NSJSONReadingOptions()) as? NSDictionary
+                        {
+                            return jsonResult as? Dictionary
+                        }
+                        else{
+                            print("json data not read")
+                        }
                     }
-                    else {
+                    catch{
                         return nil
                     }
                 }
                 else{
-                    return nil
+                    print("contents of file not read")
                 }
             }
-            catch {
+            catch{
                 return nil
             }
         }
         else{
-            return nil
+            print("invalid path")
         }
+        return nil
     }
 }
