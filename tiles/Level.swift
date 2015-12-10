@@ -7,6 +7,22 @@ class Level {
     private var cookies = Array2D<Cookie>(columns: numberOfColumns, rows: numberOfRows)
     private var tiles = Array2D<Tile>(columns: numberOfColumns, rows: numberOfRows)
 
+    init(filename: String) {
+        if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename){
+            if let tilesArray: AnyObject = dictionary["tiles"] {
+                for(row, rowArray) in (tilesArray as! [[Int]]).enumerate(){
+                    let tileRow = numberOfRows - row - 1
+
+                    for(column, value) in rowArray.enumerate() {
+                        if value == 1{
+                            tiles[column, tileRow] = Tile()
+                        }
+                    }
+                }
+            }
+        }
+    }
+
     func tileAtColumn(column: Int, row: Int) -> Tile? {
         assert(column >= 0 && column < numberOfColumns)
         assert(row >= 0 && row < numberOfRows)
@@ -28,12 +44,13 @@ class Level {
 
         for row in 0..<numberOfRows {
             for column in 0..<numberOfColumns{
-                let cookieType = CookieType.random()
+                if tiles[column, row] != nil {
+                    let cookieType = CookieType.random()
+                    let cookie = Cookie(column: column, row: row, cookieType: cookieType)
+                    cookies[column, row] = cookie
 
-                let cookie = Cookie(column: column, row: row, cookieType: cookieType)
-                cookies[column, row] = cookie
-
-                set.insert(cookie)
+                    set.insert(cookie)
+                }
             }
         }
         return set;
