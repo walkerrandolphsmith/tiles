@@ -11,10 +11,10 @@ struct Array2D<T> {
     
     subscript(column: Int, row: Int) -> T? {
         get{
-            return array[row*column + column]
+            return array[row*columns + column]
         }
         set {
-            array[row * column + column] = newValue
+            array[row*columns + column] = newValue
         }
     }
 }
