@@ -22,6 +22,7 @@ class GameViewController: UIViewController {
 
         level = Level(filename: "Level_3")
         scene.level = level
+        scene.addTiles()
         scene.swipeHandler = handleSwipe
 
         skView.presentScene(scene)

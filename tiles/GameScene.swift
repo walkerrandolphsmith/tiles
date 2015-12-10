@@ -12,6 +12,7 @@ class GameScene: SKScene {
     
     let gameLayer = SKNode()
     let cookiesLayer = SKNode()
+    let tilesLayer = SKNode()
 
     var swipeFromColumn: Int?
     var swipeFromRow: Int?
@@ -30,11 +31,26 @@ class GameScene: SKScene {
             y: -TileHeight * CGFloat(numberOfRows) / 2
         )
 
+        tilesLayer.position = layerPosition
         cookiesLayer.position = layerPosition
+
+        gameLayer.addChild(tilesLayer)
         gameLayer.addChild(cookiesLayer)
 
         swipeFromColumn = nil
         swipeFromRow = nil
+    }
+
+    func addTiles() {
+        for row in 0..<numberOfRows {
+            for column in 0..<numberOfColumns {
+                if let _ = level.tileAtColumn(column, row: row){
+                    let tileNode = SKSpriteNode(imageNamed: "Tile")
+                    tileNode.position = pointForColumn(column, row: row)
+                    tilesLayer.addChild(tileNode)
+                }
+            }
+        }
     }
 
     func addSpritesForCookies(cookies: Set<Cookie>) {
