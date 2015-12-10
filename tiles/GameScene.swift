@@ -17,6 +17,8 @@ class GameScene: SKScene {
     var swipeFromColumn: Int?
     var swipeFromRow: Int?
 
+    var selectionSprite = SKSpriteNode()
+
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -62,6 +64,27 @@ class GameScene: SKScene {
         }
     }
 
+    func showSelectionIndicatorForCookie(cookie: Cookie) {
+        if selectionSprite.parent != nil {
+            selectionSprite.removeFromParent()
+        }
+
+        if let sprite = cookie.sprite {
+            let texture = SKTexture(imageNamed: cookie.cookieType.highlightedSpriteName)
+            selectionSprite.runAction(SKAction.setTexture(texture))
+
+            sprite.addChild(selectionSprite)
+            selectionSprite.alpha = 1.0
+        }
+    }
+
+    func hideSelectionIndicator() {
+        selectionSprite.runAction(SKAction.sequence([
+            SKAction.fadeOutWithDuration(0.3),
+            SKAction.removeFromParent()
+        ]))
+    }
+
     func pointForColumn(column: Int, row: Int) -> CGPoint {
         return CGPoint(
             x: CGFloat(column) * TileWidth + TileWidth / 2,
@@ -88,7 +111,8 @@ class GameScene: SKScene {
 
         let(success, column, row) = convertPoint(location!)
         if success {
-            if let _ = level.cookieAtColumn(column, row: row){
+            if let cookie = level.cookieAtColumn(column, row: row){
+                showSelectionIndicatorForCookie(cookie)
                 swipeFromColumn = column
                 swipeFromRow = row
             }
@@ -119,6 +143,7 @@ class GameScene: SKScene {
 
             if horzDelta != 0 || vertDelt != 0 {
                 trySwapHorizontal(horzDelta, vertical: vertDelt)
+                hideSelectionIndicator()
                 swipeFromColumn = nil
             }
         }
@@ -162,6 +187,10 @@ class GameScene: SKScene {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         swipeFromColumn = nil
         swipeFromRow = nil
+
+        if selectionSprite.parent != nil && swipeFromColumn != nil {
+            hideSelectionIndicator()
+        }
     }
 
     override func touchesCancelled(touches: Set<UITouch>?, withEvent event: UIEvent?) {
