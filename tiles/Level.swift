@@ -6,6 +6,7 @@ let numberOfRows = 9
 class Level {
     private var cookies = Array2D<Cookie>(columns: numberOfColumns, rows: numberOfRows)
     private var tiles = Array2D<Tile>(columns: numberOfColumns, rows: numberOfRows)
+    private var possibleSwaps = Set<Swap>()
 
     init(filename: String) {
         if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename){
@@ -36,7 +37,14 @@ class Level {
     }
 
     func shuffle() -> Set<Cookie> {
-        return createInitialCookies()
+        var set: Set<Cookie>
+        repeat {
+            set = createInitialCookies()
+            detectPossibleSwaps()
+        }
+        while possibleSwaps.count == 0
+
+        return set
     }
 
     private func createInitialCookies() -> Set<Cookie> {
@@ -64,6 +72,69 @@ class Level {
             }
         }
         return set;
+    }
+
+    func isPossibleSwap(swap: Swap) -> Bool {
+        return possibleSwaps.contains(swap)
+    }
+
+    func detectPossibleSwaps() {
+        var set = Set<Swap>()
+
+        for row in 0..<numberOfRows {
+            for column in 0..<numberOfColumns {
+                if let cookie = cookies[column, row] {
+
+                    if column < numberOfColumns - 1 {
+                        if let other = cookies[column + 1, row]{
+                            cookies[column, row] = other
+                            cookies[column + 1, row] = cookie
+
+                            if hasChainAtColumn(column + 1, row: row) || hasChainAtColumn(column, row: row) {
+                                set.insert(Swap(cookieA: cookie, cookieB: other))
+                            }
+
+                            cookies[column, row] = cookie
+                            cookies[column + 1, row] = other
+                        }
+                    }
+
+                    if row < numberOfColumns - 1 {
+                        if let other = cookies[column, row + 1] {
+                            cookies[column, row] = other
+                            cookies[column, row + 1] = cookie
+
+                            if hasChainAtColumn(column, row: row + 1) || hasChainAtColumn(column, row: row) {
+                                set.insert(Swap(cookieA: cookie, cookieB: other))
+                            }
+
+                            cookies[column, row] = cookie
+                            cookies[column, row + 1] = other
+                        }
+                    }
+
+                }
+            }
+        }
+        possibleSwaps = set
+    }
+
+    private func hasChainAtColumn(column: Int, row: Int) -> Bool {
+        let cookieType = cookies[column, row]!.cookieType
+        
+        var horzLength = 1
+        for var i = column - 1; i >= 0 && cookies[i, row]?.cookieType == cookieType;
+            --i, ++horzLength { }
+        for var i = column + 1; i < numberOfColumns && cookies[i, row]?.cookieType == cookieType;
+            ++i, ++horzLength { }
+        if horzLength >= 3 { return true }
+        
+        var vertLength = 1
+        for var i = row - 1; i >= 0 && cookies[column, i]?.cookieType == cookieType;
+            --i, ++vertLength { }
+        for var i = row + 1; i < numberOfRows && cookies[column, i]?.cookieType == cookieType;
+            ++i, ++vertLength { }
+        return vertLength >= 3
     }
 
     func performSwap(swap: Swap) {
