@@ -19,6 +19,8 @@ class GameScene: SKScene {
 
     var selectionSprite = SKSpriteNode()
 
+    let swapSound = SKAction.playSoundFileNamed("Sounds/Chomp.wav", waitForCompletion: false)
+
     override init(size: CGSize) {
         super.init(size: size)
         
@@ -183,6 +185,8 @@ class GameScene: SKScene {
         let moveB = SKAction.moveTo(spriteA.position, duration: Duration)
         moveB.timingMode = .EaseOut
         spriteB.runAction(moveB)
+
+        runAction(swapSound)
     }
 
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
