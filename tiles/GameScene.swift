@@ -21,6 +21,7 @@ class GameScene: SKScene {
 
     let swapSound = SKAction.playSoundFileNamed("Sounds/Chomp.wav", waitForCompletion: false)
     let invalidSwapSound = SKAction.playSoundFileNamed("Sounds/Error.wav", waitForCompletion: false)
+    let matchSound = SKAction.playSoundFileNamed("Sounds/Match.wav", waitForCompletion: false)
 
     override init(size: CGSize) {
         super.init(size: size)
@@ -208,6 +209,22 @@ class GameScene: SKScene {
         spriteA.runAction(SKAction.sequence([moveA, moveB]), completion: completion)
         spriteB.runAction(SKAction.sequence([moveB, moveA]))
         runAction(invalidSwapSound)
+    }
+
+    func animateMatchedCookies(chains: Set<Chain>, completion: () -> ()) {
+        for chain in chains {
+            for cookie in chain.cookies {
+                if let sprite = cookie.sprite {
+                    if sprite.actionForKey("removing") == nil {
+                        let scaleAction = SKAction.scaleTo(0.1, duration: 0.3)
+                        scaleAction.timingMode = .EaseOut
+                        sprite.runAction(SKAction.sequence([scaleAction, SKAction.removeFromParent()]), withKey: "removing")
+                    }
+                }
+            }
+        }
+        runAction(matchSound)
+        runAction(SKAction.waitForDuration(0.3), completion: completion)
     }
 
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {

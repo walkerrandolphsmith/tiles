@@ -16,6 +16,7 @@
 		CF8E9E421C16709F0090CDC2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = CF8E9E411C16709F0090CDC2 /* Assets.xcassets */; };
 		CF8E9E451C16709F0090CDC2 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = CF8E9E431C16709F0090CDC2 /* LaunchScreen.storyboard */; };
 		CF8E9E501C16709F0090CDC2 /* tilesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CF8E9E4F1C16709F0090CDC2 /* tilesTests.swift */; };
+		CFDB0DD91C1B879900F1ACCE /* Chain.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFDB0DD81C1B879900F1ACCE /* Chain.swift */; };
 		CFF56A4A1C187098003B9385 /* Array2D.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF56A491C187098003B9385 /* Array2D.swift */; };
 		CFF56A4C1C18EEE8003B9385 /* Level.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF56A4B1C18EEE8003B9385 /* Level.swift */; };
 		CFF56A501C18F7CD003B9385 /* Tile.swift in Sources */ = {isa = PBXBuildFile; fileRef = CFF56A4F1C18F7CD003B9385 /* Tile.swift */; };
@@ -49,6 +50,7 @@
 		CF8E9E4B1C16709F0090CDC2 /* tilesTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tilesTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF8E9E4F1C16709F0090CDC2 /* tilesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tilesTests.swift; sourceTree = "<group>"; };
 		CF8E9E511C16709F0090CDC2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CFDB0DD81C1B879900F1ACCE /* Chain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Chain.swift; sourceTree = "<group>"; };
 		CFF56A491C187098003B9385 /* Array2D.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Array2D.swift; sourceTree = "<group>"; };
 		CFF56A4B1C18EEE8003B9385 /* Level.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Level.swift; sourceTree = "<group>"; };
 		CFF56A4F1C18F7CD003B9385 /* Tile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Tile.swift; path = ../Tile.swift; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 				CF523F8E1C179602000D33BE /* Cookie.swift */,
 				CFF56A491C187098003B9385 /* Array2D.swift */,
 				CFF56A4B1C18EEE8003B9385 /* Level.swift */,
+				CFDB0DD81C1B879900F1ACCE /* Chain.swift */,
 				CFF56A511C18F87B003B9385 /* Extensions.swift */,
 				CF8E9E3C1C16709F0090CDC2 /* GameViewController.swift */,
 				CF8E9E3E1C16709F0090CDC2 /* Main.storyboard */,
@@ -235,6 +238,7 @@
 				CF523F8F1C179602000D33BE /* Cookie.swift in Sources */,
 				CFF56A521C18F87B003B9385 /* Extensions.swift in Sources */,
 				CFF56A501C18F7CD003B9385 /* Tile.swift in Sources */,
+				CFDB0DD91C1B879900F1ACCE /* Chain.swift in Sources */,
 				CF8E9E3D1C16709F0090CDC2 /* GameViewController.swift in Sources */,
 				CF8E9E371C16709F0090CDC2 /* AppDelegate.swift in Sources */,
 				CFF56A4A1C187098003B9385 /* Array2D.swift in Sources */,
