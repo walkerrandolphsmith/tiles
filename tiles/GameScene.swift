@@ -71,6 +71,7 @@ class GameScene: SKScene {
 
         if let sprite = cookie.sprite {
             let texture = SKTexture(imageNamed: cookie.cookieType.highlightedSpriteName)
+            selectionSprite.size = texture.size()
             selectionSprite.runAction(SKAction.setTexture(texture))
 
             sprite.addChild(selectionSprite)
