@@ -137,7 +137,7 @@ class GameScene: SKScene {
             else if row < swipeFromRow! {
                 vertDelt = -1
             }
-            else{
+            else if row > swipeFromRow! {
                 vertDelt = 1
             }
 
