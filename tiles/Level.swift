@@ -8,6 +8,9 @@ class Level {
     private var tiles = Array2D<Tile>(columns: numberOfColumns, rows: numberOfRows)
     private var possibleSwaps = Set<Swap>()
 
+    var targetScore = 0
+    var maximumMoves = 0
+
     init(filename: String) {
         if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename){
             if let tilesArray: AnyObject = dictionary["tiles"] {
@@ -20,6 +23,8 @@ class Level {
                         }
                     }
                 }
+                targetScore = dictionary["targetScore"] as! Int
+                maximumMoves = dictionary["moves"] as! Int
             }
         }
     }
