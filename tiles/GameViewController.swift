@@ -83,6 +83,10 @@ class GameViewController: UIViewController {
         }
 
         scene.animateMatchedCookies(chains) {
+            for chain in chains {
+                self.score += chain.score
+            }
+            self.updateLabels()
             let columns = self.level.fillHoles()
             self.scene.animateFallingCookie(columns){
                 let columns = self.level.topUpCookies()

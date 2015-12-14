@@ -1,5 +1,6 @@
 class Chain: Hashable {
     var cookies = [Cookie]()
+    var score = 0
 
     enum ChainType {
         case Horizontal
