@@ -11,6 +11,8 @@ class Level {
     var targetScore = 0
     var maximumMoves = 0
 
+    private var comboMultiplier = 1
+
     init(filename: String) {
         if let dictionary = Dictionary<String, AnyObject>.loadJSONFromBundle(filename){
             if let tilesArray: AnyObject = dictionary["tiles"] {
@@ -292,7 +294,12 @@ class Level {
 
     private func calculateScores(chains: Set<Chain>) {
         for chain in chains {
-            chain.score = 60 * (chain.length - 2)
+            chain.score = 60 * (chain.length - 2) * comboMultiplier
+            ++comboMultiplier
         }
+    }
+
+    func resetComboMultiplier() {
+        comboMultiplier = 1
     }
 }

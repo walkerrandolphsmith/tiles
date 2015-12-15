@@ -98,6 +98,7 @@ class GameViewController: UIViewController {
     }
 
     func beginNextTurn() {
+        level.resetComboMultiplier()
         level.detectPossibleSwaps()
         view.userInteractionEnabled = true
     }
