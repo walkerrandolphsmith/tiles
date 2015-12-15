@@ -309,6 +309,10 @@ class GameScene: SKScene {
 
     }
 
+    func removeAllCookieSprites() {
+        cookiesLayer.removeAllChildren()
+    }
+
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         swipeFromColumn = nil
         swipeFromRow = nil
