@@ -71,6 +71,13 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="qQx-Hf-5v4">
                                 <rect key="frame" x="0.0" y="209" width="320" height="150"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sme-Er-QaZ">
+                                <rect key="frame" x="141" y="518" width="50" height="30"/>
+                                <state key="normal" title="Shuffle"/>
+                                <connections>
+                                    <action selector="shuffleButtonPressed:" destination="BV1-FR-VrT" eventType="touchUpInside" id="6ot-SP-jY0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.031979281455278397" green="0.0076767443679273129" blue="0.01164570264518261" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
                     </view>
@@ -78,6 +85,7 @@
                         <outlet property="gameOverPanel" destination="qQx-Hf-5v4" id="MNz-Jo-PUV"/>
                         <outlet property="movesLabel" destination="Y6z-X2-f4c" id="ObY-IL-CH1"/>
                         <outlet property="scoreLabel" destination="mD8-Ut-3Ea" id="Fz2-Yo-EHz"/>
+                        <outlet property="shuffleButton" destination="Sme-Er-QaZ" id="5UT-iS-Nfu"/>
                         <outlet property="targetLabel" destination="THJ-cb-cJb" id="Ctg-PI-wRh"/>
                     </connections>
                 </viewController>

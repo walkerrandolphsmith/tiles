@@ -20,12 +20,15 @@ class GameViewController: UIViewController {
     @IBOutlet weak var movesLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
 
+    @IBOutlet weak var shuffleButton: UIButton!
+
     @IBOutlet weak var gameOverPanel: UIImageView!
     var tapGestureRecognizer: UITapGestureRecognizer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        shuffleButton.hidden = true
         gameOverPanel.hidden = true
         let skView = view as! SKView
         scene = GameScene(size: skView.bounds.size)
@@ -57,6 +60,8 @@ class GameViewController: UIViewController {
         score = 0
         updateLabels()
         shuffle()
+
+        self.shuffleButton.hidden = false
     }
 
     func shuffle(){
@@ -129,7 +134,13 @@ class GameViewController: UIViewController {
         scoreLabel.text = String(format: "%ld", score)
     }
 
+    @IBAction func shuffleButtonPressed(_: AnyObject) {
+        shuffle()
+        decrementMoves()
+    }
+
     func showGameOver() {
+        shuffleButton.hidden = true
         gameOverPanel.hidden = false
         scene.userInteractionEnabled = false
 
